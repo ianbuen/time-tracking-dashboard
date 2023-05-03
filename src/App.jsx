@@ -14,9 +14,16 @@ function App() {
     <div className='App'>
       <HeaderCard img={userImage} name={userName} state={state} />
 
-      {data.map(({title, timeframes}, key) => 
-        <TimeCard key={key} title={title} timeframes={timeframes} state={state} />
-      )}
+      <div className='App__Cards'>
+        {data.map(({title, timeframes}, key) => 
+          <TimeCard key={key} title={title} timeframes={timeframes} state={state} />
+        )}
+      </div>
+
+      <div className="Attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noreferrer">Frontend Mentor</a>. 
+        Coded by <a href="https://frontendmentor.io/profile/ianbuen">@ianbuen</a>.
+      </div>
     </div>
   )
 }

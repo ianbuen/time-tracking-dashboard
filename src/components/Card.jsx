@@ -20,11 +20,13 @@ export const TimeCard = ({title, timeframes, state}) => {
   const {current, previous} = getTotalTime();
 
   return (
-    <div className="TimeCard">
-      <h3>{title}</h3>
-      <img src={ellipsis} alt={'ellipsis'} />
-      <h4>{`${current}hrs`}</h4>
-      <p>{`Last week - ${previous}hrs`}</p>
+    <div className="Card">
+      <div className="TimeCard">
+        <h3>{title}</h3>
+        <img src={ellipsis} alt={'ellipsis'} />
+        <h4>{`${current}hrs`}</h4>
+        <p>{`Last week - ${previous}hrs`}</p>
+      </div>
     </div>
   )
 };
