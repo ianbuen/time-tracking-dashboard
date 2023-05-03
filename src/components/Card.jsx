@@ -11,10 +11,18 @@ export const TimeCard = () => {
 
 export const HeaderCard = ({img, name}) => {
   return (
-    <div className="HeaderCard">
-        <img src={img} alt={`photo of ${name}`} />
-        <p>Report for</p>
-        <h1>{name}</h1>   
+    <div className="Menu">
+      <div className="HeaderCard">
+          <img src={img} alt={`photo of ${name}`} />
+          <p>Report for</p>
+          <h1>{name}</h1>   
+      </div>
+
+      <div className="Menu__Items">
+        <h2>Daily</h2>
+        <h2>Weekly</h2>
+        <h2>Monthly</h2>
+      </div>
     </div>
   )
 }
