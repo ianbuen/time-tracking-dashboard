@@ -10,15 +10,29 @@
     padding: 4.5rem 1.5rem
     gap: 2rem
 
+    @include width(720)
+        padding: 0
+        place-content: center
+        grid-template-columns: repeat(2, auto)
+        grid-template-rows: repeat(2, min-content)
+
 .App__Cards
     display: grid
     gap: 2rem
+
+    @include width(720)
+        grid-template-columns: repeat(3, minmax(0, 1fr))
+        grid-column: 2
 
 .Attribution
     padding-top: 1rem
     justify-self: center
     font-size: .625rem
     opacity: 0.75
+
+    @include width(720)
+        grid-row: 2
+        grid-column: span 2
 
     a
         color: white

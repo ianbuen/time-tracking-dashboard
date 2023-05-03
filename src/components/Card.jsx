@@ -46,7 +46,7 @@ export const TimeCard = ({title, timeframes, state}) => {
 
   return (
     <div className="Card">
-      <div ref={refCard} className="TimeCard TimeCard_Hover">
+      <div ref={refCard} className="TimeCard">
         <h3>{title}</h3>
         <div className="ImageWrapper" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
           <img src={ellipsis} alt={'ellipsis'} />
