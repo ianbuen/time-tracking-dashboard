@@ -1,0 +1,6 @@
+$very_dark_blue: hsl(226, 43%, 10%)
+
+@mixin width($width)
+    @media screen and ( max-width: $width ) and (orientation: landscape)
+        @content
+        
