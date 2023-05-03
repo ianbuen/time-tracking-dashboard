@@ -19,19 +19,39 @@ export const TimeCard = ({title, timeframes, state}) => {
 
   const {current, previous} = getTotalTime();
 
+  const getPreviousTimeText = () => {
+
+    switch (mode) {
+      case 0: return `Yesterday - ${previous}hrs`;
+      case 1: return `Last Week - ${previous}hrs`;
+      case 2: return `Last Month - ${previous}hrs`;
+    }
+
+    return -1;
+  }
+
   return (
     <div className="Card">
       <div className="TimeCard">
         <h3>{title}</h3>
         <img src={ellipsis} alt={'ellipsis'} />
         <h4>{`${current}hrs`}</h4>
-        <p>{`Last week - ${previous}hrs`}</p>
+        <p>{getPreviousTimeText()}</p>
       </div>
     </div>
   )
 };
 
-export const HeaderCard = ({img, name}) => {
+export const HeaderCard = ({img, name, state}) => {
+
+  const menuItems = ['Daily', 'Weekly', 'Monthly'];
+
+  const [mode, setMode] = state;
+
+  const handleClick = (key) => {
+    setMode(key);
+  };
+
   return (
     <div className="Menu">
       <div className="HeaderCard">
@@ -41,9 +61,9 @@ export const HeaderCard = ({img, name}) => {
       </div>
 
       <div className="Menu__Items">
-        <h2>Daily</h2>
-        <h2>Weekly</h2>
-        <h2>Monthly</h2>
+        {menuItems.map((item, key) =>
+          <h2 key={key} className={mode === key ? "Menu__Items_Active" : ""} onClick={() => handleClick(key)}>{item}</h2>
+        )}
       </div>
     </div>
   )
