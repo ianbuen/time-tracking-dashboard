@@ -1,10 +1,12 @@
 import "../styles/Card.sass"
 import PropTypes from 'prop-types';
 import ellipsis from "../assets/icon-ellipsis.svg";
+import { useRef } from "react";
 
 export const TimeCard = ({title, timeframes, state}) => {
 
   const [mode] = state;
+  const refCard = useRef(null);
 
   const getTotalTime = () => {
 
@@ -21,21 +23,35 @@ export const TimeCard = ({title, timeframes, state}) => {
 
   const getPreviousTimeText = () => {
 
+    let text = "";
+
     switch (mode) {
-      case 0: return `Yesterday - ${previous}hrs`;
-      case 1: return `Last Week - ${previous}hrs`;
-      case 2: return `Last Month - ${previous}hrs`;
+      case 0: text = `Yesterday - ${previous}`; break;
+      case 1: text = `Last Week - ${previous}`; break;
+      case 2: text = `Last Month - ${previous}`;
     }
 
-    return -1;
+    text += previous < 2 ? 'hr' : 'hrs';
+
+    return text;
+  }
+
+  const handleMouseOver = () => {
+    refCard.current.style.background = "hsl(235, 46%, 20%)";
+  };
+
+  const handleMouseOut = () => {
+    refCard.current.style.background = "";
   }
 
   return (
     <div className="Card">
-      <div className="TimeCard">
+      <div ref={refCard} className="TimeCard TimeCard_Hover">
         <h3>{title}</h3>
-        <img src={ellipsis} alt={'ellipsis'} />
-        <h4>{`${current}hrs`}</h4>
+        <div className="ImageWrapper" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+          <img src={ellipsis} alt={'ellipsis'} />
+        </div>
+        <h4>{`${current}${current < 2 ? 'hr' : 'hrs'}`}</h4>
         <p>{getPreviousTimeText()}</p>
       </div>
     </div>
@@ -72,11 +88,11 @@ export const HeaderCard = ({img, name, state}) => {
 TimeCard.propTypes = {
   title: PropTypes.string.isRequired,
   timeframes: PropTypes.object.isRequired,
-  state: PropTypes.object.isRequired
+  state: PropTypes.array.isRequired
 };
 
 HeaderCard.propTypes = {
-    img: PropTypes.object.isRequired,
+    img: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    state: PropTypes.object.isRequired
+    state: PropTypes.array.isRequired
 };
