@@ -9,13 +9,16 @@
     @include width(720)
         grid-template-rows: auto min-content
         height: auto
+        max-width: 235px
+
+    @include width(1280)
         max-width: 250px
 
 
 .Menu__Items
     display: grid
     grid-auto-flow: column
-    justify-content: space-between
+    justify-content: space-evenly
     padding: 1.75rem
     color: $desat_blue
 
@@ -23,6 +26,7 @@
         grid-auto-flow: row
         grid-auto-rows: min-content
         gap: 1rem
+        justify-content: start
 
     h2
         transition: color 200ms linear
@@ -117,6 +121,8 @@
         font-weight: 300
 
         @include width(720)
+            font-size: 2rem
+        @include width(1280)
             font-size: 2.75rem
 
     p
@@ -134,7 +140,7 @@
     border-radius: 1rem
     padding-top: 3rem
     
-    @include width(720)
+    @include width(1280)
         width: 240px
 
 .Card:nth-of-type(1)

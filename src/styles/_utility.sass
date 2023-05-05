@@ -14,4 +14,7 @@ $yellow: hsl(43, 84%, 65%)
 @mixin width($width)
     @media screen and (min-width: #{$width}px) and (orientation: landscape)
         @content
-        
+
+@mixin portrait($width)
+    @media screen and (min-width: #{$width}px) and (orientation: portrait)
+        @content

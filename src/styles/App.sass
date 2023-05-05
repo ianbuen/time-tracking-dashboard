@@ -10,8 +10,14 @@
     padding: 4.5rem 1.5rem
     gap: 2rem
 
+    @include portrait(640)
+        $width: 16vw
+        padding-left: $width
+        padding-right: $width
+        
+
     @include width(720)
-        padding: 8rem 0
+        padding: 8rem 4rem
         place-content: center
         grid-template-columns: repeat(2, auto)
         grid-template-rows: repeat(2, min-content)
