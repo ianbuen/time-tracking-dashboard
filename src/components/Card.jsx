@@ -1,4 +1,4 @@
-import "../styles/Card.sass"
+import "../styles/Card.sass";
 import PropTypes from 'prop-types';
 import ellipsis from "../assets/icon-ellipsis.svg";
 import { useRef } from "react";
