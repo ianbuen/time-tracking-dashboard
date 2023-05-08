@@ -18,20 +18,23 @@ function App() {
   }, [state])
 
   return (
-    <div className='App'>
-      <HeaderCard img={userImage} name={userName} state={state} />
+    <main>
+      <div className='App'>
+        <HeaderCard img={userImage} name={userName} state={state} />
 
-      <div ref={refCards} className='App__Cards'>
-        {data.map(({title, timeframes}, key) => 
-          <TimeCard key={key} title={title} timeframes={timeframes} state={state} />
-        )}
-      </div>
+        <div ref={refCards} className='App__Cards'>
+          {data.map(({title, timeframes}, key) => 
+            <TimeCard key={key} title={title} timeframes={timeframes} state={state} />
+            )}
+        </div>
 
-      <div className="Attribution">
-        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noreferrer">Frontend Mentor</a>. 
-        Coded by <a href="https://frontendmentor.io/profile/ianbuen">@ianbuen</a>.
+        <div className="Attribution">
+          Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noreferrer">Frontend Mentor</a>. 
+          Coded by <a href="https://frontendmentor.io/profile/ianbuen">@ianbuen</a>.
+            
+        </div>
       </div>
-    </div>
+    </main>
   )
 }
 
